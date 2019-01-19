@@ -1,0 +1,204 @@
+﻿1.系统设置未设置
+2.员工管理 新增角色未设置
+3.车辆管理 车型接口不能用 新增修改接口无法用
+4.专线管理 删除接口不能用
+5.价格管理 未完成
+
+123 123 123456
+if (this.multipleSelection=='') {
+                        this.$message({
+                                type: 'error',
+                                message: '请选择需要短驳的运单!'
+                            });
+                        return
+                    }
+if (this.tableData.length===1) {
+                    this.searchForm.pageNo--
+                }   
+                this.querySpecialList()
+<template slot-scope="scope">
+<div v-html="statusBackground(waybillStatus(scope.row.status))" class="J-statusBackground"></div>     
+            </template>
+        
+ ,color:'#409EFF'
+            ,color:'#67C23A'
+            ,color:'#E6A23C'  注意
+            ,color:'#F56C6C'  错误
+            
+            ,color:'#909399'  完成
+
+审核人员组件
+<v-auditorSelect @auditorSelect='sequenceTagsChild'></v-auditorSelect> 
+
+import auditorSelect from '@/widget/auditorSelect'
+  components: {    
+    'v-auditorSelect':auditorSelect
+  },
+//接受组件传递过来的审核人员数据 
+      sequenceTagsChild(data){
+          this.sequenceTags=data
+      },
+
+
+          <div class="J-elTable" id="J-elTable" >
+            <el-table  :max-height="getScreenHeight-jElTableOffsetTop>=111?getScreenHeight-jElTableOffsetTop:'none'"  :data="tableData" border  @selection-change="handleSelectionChange">
+            <el-table  :max-height="getScreenHeight-jElTableOffsetTop>=111?getScreenHeight-jElTableOffsetTop:'none'"  :data="tableData" border >
+      <div class="J-elTable" id="J-elTable" >        
+        <el-table  :max-height="getScreenHeight-jElTableOffsetTop>=111?getScreenHeight-jElTableOffsetTop:'none'"  :data="tableData" border >
+
+import List from "@/utils/list.js";
+import Base from "@/utils/base.js";
+
+  mixins: [Base,List],
+
+
+
+
+import {mapGetters} from 'vuex'
+//获取页面中table距离浏览器的offsetTop值
+      jElTableOffsetTop:'',
+computed:{
+    //获取stroe 中 state的方法 相当于this.$store.getters.xx
+    ...mapGetters([
+        'getScreenHeight'
+    ])
+  },
+'getScreenHeight':function(){
+      this.jElTableOffsetTop= document.getElementById("J-elTable").offsetTop+50;       
+    }
+
+
+
+
+<div class="chart searchWaybillMyChart-rq">
+<div id="searchWaybillMyChart"></div>
+</div>
+
+:max-height="this.$store.getters.getScreenHeight-227" 
+this.$store.getters.xx
+
+<div class="homeMain-header"> 
+                <div class="J-main-search" >
+                    <el-form :inline="true" :model="searchForm" class="demo-form-inline" ref="searchForm">
+                        <el-form-item label="开单日期" prop="createTime">
+                            <el-date-picker
+                                v-model="searchForm.createTime"
+                                type="datetimerange"
+                                :picker-options="pickerOptions"
+                                range-separator="至"
+                                start-placeholder="开始日期"
+                                end-placeholder="结束日期"
+                                align="right">
+                            </el-date-picker>
+                        </el-form-item>
+                        <el-form-item label="回单状态" prop="receiptRetrieveStatus">
+                        <el-select v-model="searchForm.receiptRetrieveStatus" placeholder="请选择">
+                            <el-option
+                            v-for="item in base.receiptRetrieveStatus"
+                            :key="item.value"
+                            :label="item.code"
+                            :value="item.value">
+                            </el-option>
+                        </el-select>
+                        </el-form-item>
+                        <el-form-item label="承运商" prop="transferName">
+                        <el-input v-model="searchForm.transferName" placeholder="承运商"></el-input>
+                        </el-form-item>
+                        <el-form-item class="J-main-search-button">
+                            <el-button type="primary"  @click="handlesearch">查询</el-button>
+                            <el-button type="warning" @click="resetForm('searchForm')">重置</el-button>
+                        </el-form-item>
+                    </el-form> 
+                </div>
+            </div>
+
+
+
+
+
+increment:(state,payload)=>{
+        state.counter++//进行mutations的调用通过可以以commit的方式进行操作
+    },
+    decrement:(state,payload)=>{
+        console.log('mutions:',payload)
+        state.aliveRoute.push(payload);
+        
+        // state.counter=state.counter-payload
+        // state.counter--
+    },
+ gaicounter:state=>{
+            return state.aliveRoute
+        },   
+<div class="J-navButton">
+          </div>
+https://blog.csdn.net/qq_27254949/article/details/78400186
+费用登记 registrationOfFees.vue
+引用位置（）
+        TrackingS/SendGoodsTrack/ 发货跟踪
+        TrackingS/BackGoodsTrack/ 退货跟踪 
+        ExceptionManager/BackGoodsException/ 退货异常  
+        ExceptionManager/SendGoodsException/ 发货异常  
+
+凭证上传 uploadFiles.vue
+        TrackingS/SendGoodsTrack/ 发货跟踪
+        TrackingS/BackGoodsTrack/ 退货跟踪 
+        ExceptionManager/BackGoodsException/ 退货异常  
+        ExceptionManager/SendGoodsException/ 发货异常  
+
+    import registrationOfFeesDialog from '@/components/Common/registrationOfFees.vue'
+    import sendingSmsDialog from '@/components/Common/sendingSms.vue'
+    import uploadFilesDialog from '@/components/Common/uploadFiles.vue'
+    import waybillSendSign from '@/components/TrackingS/waybillSendSign.vue'
+
+//******组件
+<v-auditorSelect @auditorSelect='sequenceTagsChild'></v-auditorSelect> 
+//******引入文件
+import auditorSelect from '@/widget/auditorSelect'
+//******components
+components: {    
+        'v-auditorSelect':auditorSelect
+    },
+//******data
+sequenceTags:[],//审核人员Tags
+//******methods
+//获取审核人员 保存需要
+        sequenceTagsChild(data){
+            this.sequenceTags=data
+        },
+
+
+
+***************清空Form数据
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+//******组件
+    <v-XXX :wipedata='wipedata' ></v-XXX> 
+
+//******data
+    wipedata:true,//用来清空组件数据
+
+//******watch
+//弹框关闭时components组件清空数据 components组件使用watch监听
+    closeDialog(formName){
+    this.wipedata=!this.wipedata  
+    this.$refs[formName].resetFields();
+},
+
+//****** v-XXX引用组件中
+    <el-dialog @close="closeDialog('newModifyForm')" >
+    props:['wipedata'],
+    watch:{
+        wipedata:function(){
+            this.sequenceTags=[]
+        }
+    },
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+https://www.jianshu.com/p/197ffb46c551
+
+
+<el-form-item prop="">
+                        <el-input placeholder="车牌号码" v-model="VehicleFormList.vehicleAddForm.plateNumber"></el-input>                      
+                      </el-form-item>
